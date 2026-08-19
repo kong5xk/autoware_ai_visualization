@@ -1,0 +1,22 @@
+<launch>
+  <arg name="base_frame" default="base_link"/>
+  <arg name="mesh_file" default="package://sim_vehicle_description/mesh/sim_vehicle.dae"/>
+  <arg name="mesh_scale" default="1.0 1.0 1.0"/>
+  <arg name="mesh_xyz" default="1.0 0.0 0.0"/>
+  <arg name="mesh_rpy" default="1.57079632679 0.0 4.71238898038"/>
+  <arg name="gui" default="false"/>
+  <arg name="publish_frequency" default="30.0"/>
+  <arg name="vehicle_info" default="$(find sim_vehicle_description)/config/vehicle_info.yaml"/>
+
+  <rosparam command="load" file="$(arg vehicle_info)" ns="vehicle_info"/>
+
+  <include file="$(find sim_vehicle_description)/launch/vehicle_model.launch">
+    <arg name="base_frame" value="$(arg base_frame)"/>
+    <arg name="mesh_file" value="$(arg mesh_file)"/>
+    <arg name="mesh_scale" value="$(arg mesh_scale)"/>
+    <arg name="mesh_xyz" value="$(arg mesh_xyz)"/>
+    <arg name="mesh_rpy" value="$(arg mesh_rpy)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="publish_frequency" value="$(arg publish_frequency)"/>
+  </include>
+</launch>

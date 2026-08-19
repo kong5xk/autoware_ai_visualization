@@ -1,0 +1,23 @@
+<launch>
+  <arg name="base_frame" default="base_link"/>
+  <arg name="mesh_file" default="package://sim_vehicle_description/mesh/sim_vehicle.dae"/>
+  <arg name="mesh_scale" default="1.0 1.0 1.0"/>
+  <arg name="mesh_xyz" default="1.0 0.0 0.0"/>
+  <arg name="mesh_rpy" default="1.57079632679 0.0 4.71238898038"/>
+  <arg name="gui" default="false"/>
+  <arg name="publish_frequency" default="30.0"/>
+
+  <param name="robot_description"
+         command="$(find xacro)/xacro --inorder '$(find sim_vehicle_description)/urdf/sim_vehicle.urdf.xacro' base_frame:='$(arg base_frame)' mesh_file:='$(arg mesh_file)' mesh_scale:='$(arg mesh_scale)' mesh_xyz:='$(arg mesh_xyz)' mesh_rpy:='$(arg mesh_rpy)'"/>
+
+  <node name="joint_state_publisher"
+        pkg="joint_state_publisher"
+        type="joint_state_publisher">
+    <param name="use_gui" value="$(arg gui)"/>
+  </node>
+  <node name="robot_state_publisher"
+        pkg="robot_state_publisher"
+        type="state_publisher">
+    <param name="publish_frequency" value="$(arg publish_frequency)"/>
+  </node>
+</launch>
