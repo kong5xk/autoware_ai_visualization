@@ -1,4 +1,12 @@
 repositories:
+  car_demo:
+    type: git
+    url: https://github.com/CPFL/car_demo.git
+    version: master
+  citysim:
+    type: git
+    url: https://github.com/CPFL/osrf_citysim.git
+    version: master
   depends/autoware/common:
     type: git
     url: https://gitlab.com/autowarefoundation/autoware.ai/common.git

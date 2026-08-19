@@ -9,4 +9,8 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <depend>xacro</depend>
+
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>roslaunch</exec_depend>
 </package>

@@ -12,8 +12,8 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-foreach(dir launch mesh urdf)
+foreach(dir launch mesh param urdf)
   install(DIRECTORY ${dir}/
     DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir}
   )
-endforeach(dir)
+endforeach()

@@ -17,6 +17,7 @@
   <depend>pcl_ros</depend>
   <depend>roscpp</depend>
   <depend>rosinterface</depend>
+  <exec_depend>roslaunch</exec_depend>
   <depend>sensor_msgs</depend>
   <depend>std_msgs</depend>
   <depend>tf</depend>
